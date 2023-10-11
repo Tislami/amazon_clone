@@ -13,7 +13,7 @@ function Header() {
 
 
 const TopContainer = () => {
-    return <div className={"flex flex-grow items-center justify-start bg-amazon_blue p-1 py-2  "} >
+    return <div className={"flex flex-grow items-center bg-amazon_blue p-1 py-2  "} >
         <Logo />
         <Search />
 
@@ -75,7 +75,7 @@ const Logo = () => {
 }
 const Search = () => {
     return <div
-        className={"h-10 sm:flex items-center flex-grow hidden rounded-md bg-yellow-400 hover:bg-yellow-500 cursor-pointer"} >
+        className={"h-10 ml-6 sm:flex items-center flex-grow hidden rounded-md bg-yellow-400 hover:bg-yellow-500 cursor-pointer"} >
         <input
             type="text"
             className={"h-full w-6 p-2 flex-grow flex-shrink rounded-l-md focus:outline-none"} />
