@@ -19,7 +19,6 @@ const HomeBanner = () => {
             showIndicators={false}
             showThumbs={false}
             interval={1000}
-            className={"h-10"}
         >
             {bannerImages.map((image, index) => (
                 <div key={index}>
@@ -27,6 +26,7 @@ const HomeBanner = () => {
                         src={image}
                         alt={"banner image"}
                         loading={"lazy"}
+                        className={"object-fill"}
                     />
                 </div >
             ))}
