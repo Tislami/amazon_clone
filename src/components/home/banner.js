@@ -18,7 +18,7 @@ const HomeBanner = () => {
             showStatus={false}
             showIndicators={false}
             showThumbs={false}
-            interval={1000}
+            interval={5000}
         >
             {bannerImages.map((image, index) => (
                 <div key={index}>

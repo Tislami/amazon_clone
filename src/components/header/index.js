@@ -1,6 +1,6 @@
-import React from 'react'
 import Image from "next/image";
 import {AiOutlineMenu, AiOutlineSearch, AiOutlineShoppingCart} from "react-icons/ai";
+import AuthSection from "@/components/header/auth-section";
 
 const logoUrl = "https://links.papareact.com/f90"
 
@@ -18,10 +18,8 @@ const TopContainer = () => {
         <Search />
 
         <div className={"flex items-center mx-6 text-white text-xs space-x-6 whitespace-nowrap"} >
-            <div className={"link"} >
-                <p >Hello, Tariyel Islami</p >
-                <p className={"font-extrabold md:text-sm"} >Account & Lists</p >
-            </div >
+
+            <AuthSection />
 
             <div className={"link"} >
                 <p >Returns</p >
