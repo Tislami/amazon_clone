@@ -68,7 +68,6 @@ const Logo = () => {
             alt={"Logo"}
             width={150}
             height={40}
-            objectFit={"contain"}
             className={"cursor-pointer"}
         />
     </div >
