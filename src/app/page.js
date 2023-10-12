@@ -1,9 +1,9 @@
-import HomeBanner from "@/components/home/banner";
-import ProductFeed from "@/components/home/product_feed";
+import HomeBanner from "@/containers/home/banner";
+import ProductFeed from "@/containers/home/product_feed";
 
 export default function Home() {
 
-    return <main className="max-w-screen-2xl mx-auto bg-gray-100" >
+    return <main className="max-w-screen-2xl mx-auto" >
         <HomeBanner />
         <ProductFeed/>
     </main >

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import {AiOutlineMenu, AiOutlineSearch, AiOutlineShoppingCart} from "react-icons/ai";
 import AuthSection from "@/components/header/auth-section";
+import Link from "next/link";
 
 const logoUrl = "https://links.papareact.com/f90"
 
@@ -16,23 +17,11 @@ const TopContainer = () => {
     return <div className={"flex flex-grow items-center bg-amazon_blue p-1 py-2  "} >
         <Logo />
         <Search />
-
+         
         <div className={"flex items-center mx-6 text-white text-xs space-x-6 whitespace-nowrap"} >
-
             <AuthSection />
-
-            <div className={"link"} >
-                <p >Returns</p >
-                <p className={"font-extrabold md:text-sm"} >& Orders</p >
-            </div >
-
-            <div className={"relative flex items-center link"} >
-                <span className={"absolute top-0 right-0 flex items-center justify-center md:right-10 w-4 h-4 p-2 bg-yellow-400 text-black font-bold rounded-full"} >
-                    4
-                </span >
-                <AiOutlineShoppingCart className={"h-10 w-10"} />
-                <p className={"hidden md:inline font-extrabold md:text-sm mt-2"} >Basket</p >
-            </div >
+            <ReturnsOrders />
+            <Basket />
         </div >
 
     </div >
@@ -61,13 +50,15 @@ const BottomContainer = () => {
 
 const Logo = () => {
     return <div className={"mt-2 flex items-center flex-grow sm:flex-grow-0 "} >
-        <Image
-            src={logoUrl}
-            alt={"Logo"}
-            width={150}
-            height={40}
-            className={"cursor-pointer"}
-        />
+        <Link href={"/"} >
+            <Image
+                src={logoUrl}
+                alt={"Logo"}
+                width={150}
+                height={40}
+                className={"cursor-pointer"}
+            />
+        </Link >
     </div >
 }
 const Search = () => {
@@ -77,6 +68,25 @@ const Search = () => {
             type="text"
             className={"h-full w-6 p-2 flex-grow flex-shrink rounded-l-md focus:outline-none"} />
         <AiOutlineSearch className={"h-12 w-12 p-4"} />
+    </div >
+}
+
+const ReturnsOrders = () => {
+    return <div className={"link"} >
+        <p >Returns</p >
+        <p className={"font-extrabold md:text-sm"} >& Orders</p >
+    </div >
+}
+
+const Basket = () => {
+    return <div >
+        <Link
+            className={"relative flex items-center link"}
+            href={"/checkout"} >
+            <span className={"absolute top-0 right-0 flex items-center justify-center md:right-10 w-4 h-4 p-2 bg-yellow-400 text-black font-bold rounded-full"} >4</span >
+            <AiOutlineShoppingCart className={"h-10 w-10"} />
+            <p className={"hidden md:inline font-extrabold md:text-sm mt-2"} >Basket</p >
+        </Link >
     </div >
 }
 

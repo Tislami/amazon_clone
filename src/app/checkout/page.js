@@ -1,11 +1,12 @@
+import BasketSection from "@/containers/checkout/basket-section";
 
 
 function Checkout() {
-    return <main>
-        <h1>Checkout</h1>
+    return <main className={"lg:flex max-w-screen-2xl mx-auto"}>
+        <BasketSection />
+
     </main>
 }
-
 
 
 

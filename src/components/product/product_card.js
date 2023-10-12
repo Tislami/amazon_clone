@@ -1,8 +1,15 @@
 import React from 'react'
 import Image from "next/image";
+import {useDispatch, useSelector} from "react-redux";
 import {AiFillStar} from "react-icons/ai";
+import {addToBasket} from "@/slices/basketSlice";
 
 const ProductCard = ({product}) => {
+    const dispatch = useDispatch()
+    const addItemToBasket = () => {
+        dispatch(addToBasket(product))
+    }
+
     return <div className={"relative flex flex-col m-5 p-10 z-30 bg-white"} >
         <p className={"absolute top-2 right-2 text-xs italic text-gray-400"} >{product.category}</p >
 
@@ -24,7 +31,9 @@ const ProductCard = ({product}) => {
             <p className={"mb-5 font-semibold "} >${product.price}</p >
         </div>
 
-        <button className={"mt-auto primary-btn"} >Add to Basket</button >
+        <button
+            onClick={addItemToBasket}
+            className={"mt-auto primary-btn"} >Add to Basket</button >
     </div >
 }
 
