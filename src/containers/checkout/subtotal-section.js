@@ -1,10 +1,9 @@
 "use client"
-import Image from "next/image";
-import ProductCard from "@/containers/checkout/product-card";
+import {useSession} from "next-auth/react";
+import {useSelector} from "react-redux";
+import {selectItems, selectTotals} from "@/services/redux/features/basketSlice";
 
-const popUpImage = "https://links.papareact.com/ikj"
-
-function BasketSection() {
+function SubtotalSection() {
 
     const items = [
 
@@ -31,29 +30,25 @@ function BasketSection() {
                 "rate": 4.7,
                 "count": 500
             }
-        }
-    ] // useSelector(state => state.basket.items)
-    
-    return <section className={"flex-grow m-5 shadow-sm"}>
-        <Image
-            src={popUpImage}
-            alt={"popup image"}
-            width={1020}
-            height={250}
-        />
+        }]
 
-        <section className={"flex flex-col p-5 space-y-10 bg-white "}>
-            <h1 className={"text-3xl border-b pb-4"}>
-                {items.length === 0 ? "Your Basket is Empty" : "Your Shopping Basket"}
-            </h1>
+    const total = items.reduce((total, item) => total + item.price, 0)
 
-            {
-                items.map((item) => (<ProductCard product={item} key={item.id}/>))
-            }
-
-        </section>
-    </section>
+    const session = true
+    return (
+        <aside className={"flex flex-col bg-white p-10 shadow-md"}>
+            <h2 className={"whitespace-nowrap"}> Subtotal ({items.length} items):</h2>
+            <span className={"font-bold"}> $ {total}</span>
+            <button
+                className={`primary-btn mt-2 
+                ${!session && `from-gray-300 to-gray-500 border-gray-200 text-gray-300 cursor-not-allowed`}`}
+                disabled={!session}>
+                Proceed to checkout
+            </button>
+        </aside>
+    )
 }
 
 
-export default BasketSection
+export default SubtotalSection;
+

@@ -1,8 +1,9 @@
 import {configureStore} from "@reduxjs/toolkit";
-import basketReducer from "../slices/basketSlice";
+import basketReducer from "@/services/redux/features/basketSlice";
 
 // The global Store
-export const store = configureStore({
+export const store = configureStore(
+    {
         reducer: {
             basket: basketReducer,
         },

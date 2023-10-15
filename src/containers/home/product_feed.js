@@ -1,5 +1,5 @@
 import React from 'react'
-import ProductCard from "@/components/product/product_card";
+import ProductCard from "@/components/product-card";
 
 async function getProducts() {
     const response = await fetch("https://fakestoreapi.com/products")

@@ -2,6 +2,7 @@ import Image from "next/image";
 import {AiOutlineMenu, AiOutlineSearch, AiOutlineShoppingCart} from "react-icons/ai";
 import AuthSection from "@/components/header/auth-section";
 import Link from "next/link";
+import Basket from "@/components/header/basket";
 
 const logoUrl = "https://links.papareact.com/f90"
 
@@ -78,17 +79,6 @@ const ReturnsOrders = () => {
     </div >
 }
 
-const Basket = () => {
-    return <div >
-        <Link
-            className={"relative flex items-center link"}
-            href={"/checkout"} >
-            <span className={"absolute top-0 right-0 flex items-center justify-center md:right-10 w-4 h-4 p-2 bg-yellow-400 text-black font-bold rounded-full"} >4</span >
-            <AiOutlineShoppingCart className={"h-10 w-10"} />
-            <p className={"hidden md:inline font-extrabold md:text-sm mt-2"} >Basket</p >
-        </Link >
-    </div >
-}
 
 
 export default Header
