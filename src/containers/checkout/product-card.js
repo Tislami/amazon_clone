@@ -13,7 +13,7 @@ function ProductCard({product}) {
                     alt={product.title}
                     width={125}
                     height={125}
-                    objectFit="cover"
+                    style={{width: 'auto', height: 'auto'}}
                 />
             </figure>
 

@@ -1,12 +1,15 @@
 "use client"
 import Image from "next/image";
 import ProductCard from "@/containers/checkout/product-card";
+import {useSelector} from "react-redux";
+import {selectItems} from "@/services/redux/features/basketSlice";
 
 const popUpImage = "https://links.papareact.com/ikj"
 
 function BasketSection() {
 
-    const items = [
+    const items =  useSelector(selectItems)
+    /*const items =  [
 
         {
             "id": 2,
@@ -32,8 +35,9 @@ function BasketSection() {
                 "count": 500
             }
         }
-    ] // useSelector(state => state.basket.items)
-    
+    ]
+*/
+
     return <section className={"flex-grow m-5 shadow-sm"}>
         <Image
             src={popUpImage}

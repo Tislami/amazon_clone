@@ -51,14 +51,18 @@ const BottomContainer = () => {
 
 const Logo = () => {
     return <div className={"mt-2 flex items-center flex-grow sm:flex-grow-0 "} >
-        <Link href={"/"} >
-            <Image
-                src={logoUrl}
-                alt={"Logo"}
-                width={150}
-                height={40}
-                className={"cursor-pointer"}
-            />
+        <Link
+            className={"cursor-pointer"}
+            href={"/"} >
+            <figure>
+                <Image
+                    src={logoUrl}
+                    alt={"Logo"}
+                    width={150}
+                    height={40}
+                    style={{ width: 'auto', height: 'auto' }}
+                />
+            </figure>
         </Link >
     </div >
 }

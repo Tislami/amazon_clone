@@ -1,5 +1,6 @@
 import HomeBanner from "@/containers/home/banner";
 import ProductFeed from "@/containers/home/product_feed";
+import Link from "next/link";
 
 export default function Home() {
 

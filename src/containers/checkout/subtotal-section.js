@@ -1,11 +1,11 @@
 "use client"
-import {useSession} from "next-auth/react";
 import {useSelector} from "react-redux";
 import {selectItems, selectTotals} from "@/services/redux/features/basketSlice";
+import {isLoggedIn, userSession} from "@/services/redux/features/userSlice";
 
 function SubtotalSection() {
 
-    const items = [
+    /*const items =  [
 
         {
             "id": 2,
@@ -30,19 +30,28 @@ function SubtotalSection() {
                 "rate": 4.7,
                 "count": 500
             }
-        }]
+        }
+    ]
+*/
+    //const total = items.reduce((total, item) => total + item.price, 0)
+    const items = useSelector(selectItems)
+    const total = useSelector(selectTotals)
+    const session = useSelector(isLoggedIn)
 
-    const total = items.reduce((total, item) => total + item.price, 0)
 
-    const session = true
     return (
         <aside className={"flex flex-col bg-white p-10 shadow-md"}>
             <h2 className={"whitespace-nowrap"}> Subtotal ({items.length} items):</h2>
-            <span className={"font-bold"}> $ {total}</span>
+            <span className={"font-bold"}> $ {total} </span>
+
+
             <button
-                className={`primary-btn mt-2 
-                ${!session && `from-gray-300 to-gray-500 border-gray-200 text-gray-300 cursor-not-allowed`}`}
-                disabled={!session}>
+                className={`mt-2
+                ${(items.length > 0 && session) ?
+                    `primary-btn` :
+                    `primary-btn from-gray-300 to-gray-500 border-gray-200 text-gray-300 cursor-not-allowed`
+                }`
+                }>
                 Proceed to checkout
             </button>
         </aside>
